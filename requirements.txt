@@ -1,0 +1,8 @@
+python-dotenv>=1.0
+streamlit>=1.35
+pandas>=2.0
+sqlglot>=25.0
+google-genai>=1.0
+# Optional: only if LLM_PROVIDER=anthropic
+anthropic>=0.40
+pytest>=8.0

@@ -1,0 +1,12 @@
+[
+  {"question": "How many tracks does each media type have? Give media type name and count.",
+   "sql": "SELECT mt.Name, COUNT(*) FROM Track t JOIN MediaType mt ON mt.MediaTypeId = t.MediaTypeId GROUP BY mt.MediaTypeId, mt.Name"},
+  {"question": "Which 3 customers from Canada have the highest total spend? Give first and last name.",
+   "sql": "SELECT c.FirstName, c.LastName FROM Customer c JOIN Invoice i ON i.CustomerId = c.CustomerId WHERE c.Country = 'Canada' GROUP BY c.CustomerId, c.FirstName, c.LastName ORDER BY SUM(i.Total) DESC LIMIT 3"},
+  {"question": "How many invoices were issued in March 2022?",
+   "sql": "SELECT COUNT(*) FROM Invoice WHERE strftime('%Y-%m', InvoiceDate) = '2022-03'"},
+  {"question": "What is the average unit price of tracks in each genre? Give genre name and average price.",
+   "sql": "SELECT g.Name, AVG(t.UnitPrice) FROM Genre g JOIN Track t ON t.GenreId = g.GenreId GROUP BY g.GenreId, g.Name"},
+  {"question": "List each employee's first name together with their manager's first name.",
+   "sql": "SELECT e.FirstName, m.FirstName FROM Employee e JOIN Employee m ON e.ReportsTo = m.EmployeeId"}
+]
